@@ -8,6 +8,7 @@ import LineChart from './LineChart';
 import RadialBar from './RadialBar';
 import CandleStick from './CandleStick';
 import AccessibleTable from './Table';
+import ReleaseTable from './ReleaseTable';
 
 function createData(name, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec) {
   return { name, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
@@ -18,6 +19,16 @@ const rowsData1 = {
     createData('Manual work', 159, 6.0, 24, 4.0,159, 6.0, 24, 4.0,159, 6.0, 24, 4.0),
     createData('Automated tests duration', 237, 9.0, 37, 4.3,159, 6.0, 24, 4.0,159, 6.0, 24, 4.0),
     createData('total efforts for test results obtaining', 262, 16.0, 24, 6.0,159, 6.0, 24, 4.0,159, 6.0, 24, 4.0),
+  ]
+};
+
+const rowsData2 = {
+  rowsData:[
+    createData('Accessibility Defects', 2, 0, 0, 0,0, 0, 0, 0,0, 0),
+    createData('Security Defects', 1, 0, 0, 0,0, 0, 0, 0,0, 0),
+    createData('Performance Defects', 1, 0, 0, 0,0, 0, 0, 0,0, 0),
+    createData('Functional Defects', 3, 0, 0, 0,0, 0, 0, 0,0, 0),
+    createData('Product Incident', 3, 0, 0, 0,0, 0, 0, 0,0, 0)
   ]
 };
 
@@ -99,8 +110,12 @@ const Dashboard = () => {
   return (
     <animated.div style={fadeIn} className="dashboard-container">
       {/* <h1 className="dashboard-heading">CEP DASHBOARD</h1> */}
-      <div className="header dashboard-header">
+      <div className="header">
         <h1 className="dashboard-heading">CEP DASHBOARD</h1>
+      </div>
+      <h2>Summary</h2>
+      <div className="chart-row">
+      <ReleaseTable {...rowsData2}></ReleaseTable>
       </div>
       <h2>Functional Testing Summary</h2>
       {/* <div className="release-dropdown">
@@ -180,6 +195,7 @@ const Dashboard = () => {
         <LineChart />
         <LineChart />
       </div>
+
     </animated.div>
   );
 };
