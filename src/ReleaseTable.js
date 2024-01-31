@@ -14,19 +14,21 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
+    fontSize: 12,
+    border: '1px solid #dddddd', // Add line
   },
 }));
 
 const StyledTableCell1 = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-      backgroundColor: '#373737',
-      color: theme.palette.common.white,
-    },
-    [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
-    },
-  }));
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: '#676868',
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 12,
+    border: '1px solid #dddddd', // Add line
+  },
+}));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
@@ -38,66 +40,45 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, Jan, Feb, Mar, Apr ,May, Jun, Jul, Aug,Sep, Oct, Nov, Dec) {
-  return { name,Jan, Feb, Mar, Apr ,May, Jun, Jul, Aug,Sep, Oct, Nov, Dec };
+function createData(name, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec) {
+  return { name, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
 }
 
 const rows = [
-  createData('Accessibility Defects', 2, 0, 0, 0,0, 0, 0, 0,0, 0),
-  createData('Security Defects', 1, 0, 0, 0,0, 0, 0, 0,0, 0),
-  createData('Performance Defects', 1, 0, 0, 0,0, 0, 0, 0,0, 0),
-  createData('Functional Defects', 3, 0, 0, 0,0, 0, 0, 0,0, 0),
-  createData('Product Incident', 3, 0, 0, 0,0, 0, 0, 0,0, 0)
+  createData('User Stories', 10, 4, 1, 1, 1, 1, 1, 1, '', 1, 'Feature files developed-ST and UAT', 100),
+  createData('Accessibility Defects', 2, 1, 1, '', '', '', '', '', '', '', 'Feature files reviewed/signed-off', 80),
+  createData('Security Defects', 1, '', '', '', 1, '', '', '', '', '', 'Non-functional script developed', 0),
+  createData('Performance Defects', 1, '', '', '', 1, '', '', '', '', '', 'Test data mining completed', 1),
+  createData('Functional Defects', 3, '', '', 1, '', '', '', '', 1, 1, 'Accessibility team engaged', 'No'),
+  createData('Product Incident', 1, '', '', '', 1, '', '', '', '', '', 'Pen tester engaged', 'Yes'),
 ];
 
 export default function CustomizedTables() {
   return (
     <TableContainer component={Paper} sx={{ maxHeight: 610 }}>
-      <Table sx={{ maxWidth: 1450 }} aria-label="customized table">
-      <TableHead>
-          <TableRow>
-            <StyledTableCell1>Release Name:</StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right">Sprint:</StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right">RAG status</StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-          </TableRow>
-        </TableHead>
-      <TableHead>
-          <TableRow>
-            <StyledTableCell1>Scope</StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right">Stage</StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-            <StyledTableCell1 align="right"></StyledTableCell1>
-          </TableRow>
-        </TableHead>
+      <Table sx={{ maxWidth: 1550 }} aria-label="customized table">
         <TableHead>
-          <TableRow>
-            <StyledTableCell>User Stories</StyledTableCell>
-            <StyledTableCell align="right">10</StyledTableCell>
-            <StyledTableCell align="right">In Analysis</StyledTableCell>
-            <StyledTableCell align="right">In Design</StyledTableCell>
-            <StyledTableCell align="right">In Dev</StyledTableCell>
-            <StyledTableCell align="right">DEV Completed</StyledTableCell>
-            <StyledTableCell align="right">In ST</StyledTableCell>
-            <StyledTableCell align="right">ST Completed</StyledTableCell>
-            <StyledTableCell align="right">UAT Completed</StyledTableCell>
-            <StyledTableCell align="right">NFT Completed</StyledTableCell>
-            <StyledTableCell align="right">Moved to SIT</StyledTableCell>
-          </TableRow>
+          <StyledTableRow>
+            <StyledTableCell1 colSpan={2}>Release Name:</StyledTableCell1>
+            <StyledTableCell1 colSpan={9} align="center">Sprint:</StyledTableCell1>
+            <StyledTableCell1 colSpan={2} align="center">RAG status</StyledTableCell1>
+          </StyledTableRow>
+          <StyledTableRow>
+            <StyledTableCell1 colSpan={2} rowSpan={2} align="center">Scope</StyledTableCell1>
+            <StyledTableCell1 colSpan={9} align="center">DEV Planning</StyledTableCell1>
+            <StyledTableCell1 colSpan={2} rowSpan={2} align="center">Test Planning</StyledTableCell1>
+          </StyledTableRow>
+          <StyledTableRow>
+            <StyledTableCell1 align="center">In Analysis</StyledTableCell1>
+            <StyledTableCell1 align="center">In Design</StyledTableCell1>
+            <StyledTableCell1 align="center">In Dev</StyledTableCell1>
+            <StyledTableCell1 align="center">DEV Completed</StyledTableCell1>
+            <StyledTableCell1 align="center">In ST</StyledTableCell1>
+            <StyledTableCell1 align="center">ST Completed</StyledTableCell1>
+            <StyledTableCell1 align="center">UAT Completed</StyledTableCell1>
+            <StyledTableCell1 align="center">NFT Completed</StyledTableCell1>
+            <StyledTableCell1 align="center">Moved to SIT</StyledTableCell1>
+          </StyledTableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
@@ -105,16 +86,18 @@ export default function CustomizedTables() {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.Jan}</StyledTableCell>
-              <StyledTableCell align="right">{row.Feb}</StyledTableCell>
-              <StyledTableCell align="right">{row.Mar}</StyledTableCell>
-              <StyledTableCell align="right">{row.Apr}</StyledTableCell>
-              <StyledTableCell align="right">{row.May}</StyledTableCell>
-              <StyledTableCell align="right">{row.Jun}</StyledTableCell>
-              <StyledTableCell align="right">{row.Jul}</StyledTableCell>
-              <StyledTableCell align="right">{row.Aug}</StyledTableCell>
-              <StyledTableCell align="right">{row.Sep}</StyledTableCell>
-              <StyledTableCell align="right">{row.Oct}</StyledTableCell>
+              <StyledTableCell align="center">{row.Jan}</StyledTableCell>
+              <StyledTableCell align="center">{row.Feb}</StyledTableCell>
+              <StyledTableCell align="center">{row.Mar}</StyledTableCell>
+              <StyledTableCell align="center">{row.Apr}</StyledTableCell>
+              <StyledTableCell align="center">{row.May}</StyledTableCell>
+              <StyledTableCell align="center">{row.Jun}</StyledTableCell>
+              <StyledTableCell align="center">{row.Jul}</StyledTableCell>
+              <StyledTableCell align="center">{row.Aug}</StyledTableCell>
+              <StyledTableCell align="center">{row.Sep}</StyledTableCell>
+              <StyledTableCell align="center">{row.Oct}</StyledTableCell>
+              <StyledTableCell align="left">{row.Nov}</StyledTableCell>
+              <StyledTableCell align="center">{row.Dec}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

@@ -115,7 +115,7 @@ const Dashboard = () => {
       </div>
       <h2>Summary</h2>
       <div className="chart-row">
-      <ReleaseTable {...rowsData2}></ReleaseTable>
+      <ReleaseTable></ReleaseTable>
       </div>
       <h2>Functional Testing Summary</h2>
       {/* <div className="release-dropdown">
